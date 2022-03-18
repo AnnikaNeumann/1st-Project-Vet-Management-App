@@ -1,13 +1,13 @@
 class Animal:
-    def __init__(self, name, dob, breed, treatments, id = None):
+    def __init__(self, name, dob, breed, treatments, owner_id, id = None):
         self.name = name
         self.dob = dob
         self.breed = breed
         self.treatments = treatments
+        self.owner_id = owner_id
         self.id = id
 
-    def animal_has_name(self):
-        return Animal
+    
 
 
 # make neutered attribute a boolean

@@ -1,0 +1,18 @@
+h1 {
+    font-size: 48px;
+    text-align: center;
+    font-family: "Sacramento", sans-serif;
+}
+
+body{
+    background-color: rgb(83, 131, 106);
+}
+
+footer{
+    border: 2px;
+    border-color: black;
+    border-style: dotted;
+    text-align: center;
+    font-size: 25px;
+
+}

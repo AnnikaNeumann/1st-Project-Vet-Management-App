@@ -7,6 +7,7 @@ CREATE TABLE animals(
     dob VARCHAR(255),
     breed VARCHAR(255),
     treatments VARCHAR(255),
+    owner_id  INT,
 );
 
 CREATE TABLE owners(
@@ -41,6 +42,7 @@ VALUES ('Karin', 'Kaefer', 07959523258, 2);
 
 INSERT INTO owners (first_name, last_name, phone, pet_id);
 VALUES ('Anita', 'Howard', 07769034592, 3);
+
 
 
 SELECT * FROM animals;
