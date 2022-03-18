@@ -1,9 +1,8 @@
 class Animal:
-    def __init__(self, name, dob, breed, neutered, treatments, id = None):
+    def __init__(self, name, dob, breed, treatments, id = None):
         self.name = name
         self.dob = dob
         self.breed = breed
-        self.neutered = neutered 
         self.treatments = treatments
         self.id = id
 
