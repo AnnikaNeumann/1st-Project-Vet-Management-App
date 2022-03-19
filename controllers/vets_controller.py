@@ -1,11 +1,9 @@
 from flask import Flask, render_template, redirect, request
 
 from flask import Blueprint
-from project.modules.animal import Animal
 from repositories import animal_repo
 from repositories import owner_repo
 from repositories import vet_repo
-from modules.owner import Owner
 
 vet_blueprint = Blueprint("animal", __name__)
 
@@ -15,9 +13,9 @@ def new_animal():
     dob = request.form["dob"]
     breed = request.form ["breed"]
     treatments = request.form ["treatments"]
-    
+
     animal = animal_repo.select(id)
-    animal = Animal(name, dob, breed, treatments)
+    animal = Animal(name, dob, breed, treatments, owner_id)
     
 
     animal_repo.save(animal)
@@ -25,10 +23,7 @@ def new_animal():
 
 
 
-@vet_blueprint.route("search")
+@vet_blueprint.route("/search", methods =["GET"])
 def search_animal():
-    animal = animal_repo.select_all()
-    owner = owner_repo.select_all()
-    return render_template('/search', all_animal = animal)
+    return render_template("/search.html", all_animal = animals)
 
-@vet_blueprint.route
