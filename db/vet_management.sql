@@ -14,33 +14,33 @@ CREATE TABLE owners(
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    phone INT
+    phone VARCHAR(255)
 );
 
 --Adding animals to the database
 
-INSERT INTO animals (name, dob, breed, treatments)
-VALUES ('Elliot', '11092011', 'Tabby_cat', 'Flea and Worm treatment');
+INSERT INTO animals (name, dob, breed, treatments,owner_id)
+VALUES ('Elliot', '11092011', 'Tabby_cat', 'Flea and Worm treatment', 1);
 
-INSERT INTO animals (name, dob, breed, treatments)
-VALUES ('Dexter', '12042010', 'Tabby_cat', 'Thyroid medication');
+INSERT INTO animals (name, dob, breed, treatments, owner_id)
+VALUES ('Dexter', '12042010', 'Tabby_cat', 'Thyroid medication', 2);
 
-INSERT INTO animals (name, dob, breed, treatments)
-VALUES ('Kingston', '03072015', 'Chihuaha', 'antidepressants');
+INSERT INTO animals (name, dob, breed, treatments, owner_id)
+VALUES ('Kingston', '03072015', 'Chihuaha', 'antidepressants', 3);
 
-INSERT INTO animals (name, dob, breed, treatments)
-VALUES ('Bridget', '07032019', 'Chicken', '');
+INSERT INTO animals (name, dob, breed, treatments, owner_id)
+VALUES ('Bridget', '07032019', 'Chicken','', 1);
 
 -- Adding owners to the database
 
 INSERT INTO owners (first_name, last_name, phone)
-VALUES ('Annika', 'Neumann', 07812323345);
+VALUES ('Annika', 'Neumann', '07812323345');
 
 INSERT INTO owners (first_name, last_name, phone)
-VALUES ('Karin', 'Kaefer', 07959523258);
+VALUES ('Karin', 'Kaefer', '07959523258');
 
 INSERT INTO owners (first_name, last_name, phone)
-VALUES ('Anita', 'Howard', 07769034592);
+VALUES ('Anita', 'Howard', '07769034592');
 
 
 

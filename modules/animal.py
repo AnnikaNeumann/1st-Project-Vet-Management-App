@@ -1,10 +1,11 @@
 class Animal:
-    def __init__(self, name, dob, breed, treatments, id = None):
+    def __init__(self, name, dob, breed, treatments):
         self.name = name
         self.dob = dob
         self.breed = breed
         self.treatments = treatments
-        self.id = id
+        self.id = None
+        self.owner_id = None
 
     
 
@@ -13,3 +14,4 @@ class Animal:
 # dob to be a string for now VARCHAR(255) in SQL
 
 
+    

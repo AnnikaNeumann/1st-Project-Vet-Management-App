@@ -1,16 +1,10 @@
 from db.run_sql import run_sql
 
 from modules.animal import Animal
-from modules.owner import Owner
-from modules.vet import Vet
-
-import repositories.owner_repo as owner_repo
-import repositories.vet_repo as vet_repo
-
 
 def save(animal):
-    sql = "INSERT INTO books (title, genre, language, author, release) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [animal.name, animal.dob, animal.breed, animal.treatment]
+    sql = "INSERT INTO animals (name, dob, breed, treatments, owner_id) VALUES (%s, %s, %s, %s, %s) RETURNING *"
+    values = [animal.name, animal.dob, animal.breed, animal.treatments, animal.owner_id]
     results = run_sql(sql, values)
     id = results[0]['id']
     animal.id = id
@@ -21,5 +15,7 @@ def select_all():
     sql = "SELECT * FROM book"
     results = run_sql(sql) 
     for row in results:
-        animal = Animal(row['name'], row ['dob'], row ['breed'], row ['treatment'], row ['owner_id'])
+        animal = Animal(row['name'], row ['dob'], row ['breed'], row ['treatments'], row ['owner_id'])
     return animal
+
+    
