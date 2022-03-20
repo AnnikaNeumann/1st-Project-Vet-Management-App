@@ -49,11 +49,22 @@ def search_here():
     return render_template("/search.html")
 
 
+@vet_blueprint.route("/search/<owner_id>", methods =['GET'])
+def display_client(owner_id):
+
+    owner = owner_repo.select_by_id(owner_id)
+    animals = animal_repo.select_animal_by_owner_id(owner.id)
+
+    return render_template("/view_client.html",owner = owner,animals = animals)
+
+
 @vet_blueprint.route("/search/search_action", methods =['POST'])
 def search_for_client():
 
     last_name = request.form["last_name"]
     owners = owner_repo.select_last_name(last_name)
+
+    # animal = animal_repo.select_animal(owner_id)
 
     return render_template('/view_clients.html',owners=owners)
 

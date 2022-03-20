@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Owners</h2>
+
+    <h3>{{owner.first_name}} {{owner.last_name}}, {{owner.phone}} <h3>
+
+    {% for animal in animals: %}
+        <h3>{{animal.name}} {{animal.dob}}, {{animal.breed}}, {{animal.treatments}} <h3>
+    {% endfor %}
+
+
+
+
+{% endblock %}

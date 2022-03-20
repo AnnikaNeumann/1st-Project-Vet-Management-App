@@ -18,4 +18,12 @@ def select_all():
         animal = Animal(row['name'], row ['dob'], row ['breed'], row ['treatments'], row ['owner_id'])
     return animal
 
-    
+def select_animal_by_owner_id(owner_id):
+    animals = []
+    sql = "SELECT * FROM animals WHERE owner_id = %s"
+    value=[owner_id]
+    results = run_sql(sql,value) 
+    for row in results:
+        animal = Animal(row['name'], row['dob'], row['breed'], row['treatments'])
+        animals.append(animal)
+    return animals

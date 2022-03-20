@@ -2,8 +2,15 @@
 
 <h2>Owners</h2>
     {% for owner in owners: %}
-        <h3>{{owner.first_name}} {{owner.last_name}}, {{owner.phone}}<h3>
+        <form action="/search" method="get">
+
+            <h3>{{owner.first_name}} {{owner.last_name}}, {{owner.phone}} <h3>
+            
+            <button type="submit" formaction="/search/{{owner.id}}">Submit</button>
+        </form>
     {% endfor %}
+
+
 
 
 {% endblock %}

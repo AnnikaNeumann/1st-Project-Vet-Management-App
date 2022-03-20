@@ -12,6 +12,15 @@ def save(owner):
     owner.id = id
     return owner 
 
+def select_by_id(id):
+    owner = None
+    sql = "SELECT * FROM owners WHERE id = %s"
+    value = [id]
+    result = run_sql(sql, value)[0]
+    if result is not None:
+        owner = Owner(result['first_name'], result['last_name'], result['phone'], result['id'])
+    return owner
+
 
 def select_last_name(last_name):
     owners = []
@@ -19,16 +28,8 @@ def select_last_name(last_name):
     value = [last_name]
     results = run_sql(sql, value)
     for row in results:
-        owner = Owner(row['first_name'], row['last_name'], row['phone'])
+        owner = Owner(row['first_name'], row['last_name'], row['phone'], row['id'])
         owners.append(owner)
     return owners
 
 
-def select_animal(owner_id):
-    animals = []
-    sql = "SELECT owner_id FROM animals WHERE owner_id = %s"
-    results = run_sql(sql) 
-    for row in results:
-        animal = Animal(row['name'], row ['DOB'], row ['breed'], row['treatments'])
-        animals.append(animal)
-    return animals
