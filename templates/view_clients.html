@@ -1,12 +1,13 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Owners</h2>
+<h2>Please find a list of all clients with this last name</h2>
     {% for owner in owners: %}
         <form action="/search" method="get">
 
             <h3>{{owner.first_name}} {{owner.last_name}}, {{owner.phone}} <h3>
             
-            <button type="submit" formaction="/search/{{owner.id}}">Submit</button>
+            <button type="submit" formaction="/search/{{owner.id}}">Select</button>
+            
         </form>
     {% endfor %}
 

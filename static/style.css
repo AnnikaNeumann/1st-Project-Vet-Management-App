@@ -3,6 +3,17 @@ h1 {
     text-align: center;
     font-family: "Sacramento", sans-serif;
 }
+ h2{
+     text-align: center;
+     font-family: "Sacramento", sans-serif;
+     font-size: 36px;
+ }
+
+.navigation {
+
+    list-style-type: none;
+    font-size: 20px;
+}
 
 body{
     background-color: rgb(83, 131, 106);

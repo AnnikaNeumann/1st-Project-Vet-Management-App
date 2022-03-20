@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %} 
+
+<h1>Update any necessary details</h1>
+<h2>Disclaimer: Breed and dob cannot be changed</h2>
+
+<form action="/new_client/save_new_client" method="post">
+    <label for="animal">Animal Name:</label>
+    <textarea name="name" id="name" rows="1"></textarea>
+    
+    <label for="animal">Treatments:</label> 
+    <textarea name="treatments" id="treatments" rows="1"></textarea>
+
+    <label for="owner">First name:</label>
+    <textarea name="first_name" id="first_name" rows="1"></textarea>
+
+    <label for="owner">Last Name:</label>
+    <textarea name="last_name" id="last_name" rows="1"></textarea>
+
+    <label for="owner">Phone number:</label> 
+    <textarea name="number" id="number" rows="1"></textarea>
+    <button type="submit" formaction="/search/{{owner.id}}">Update</button>
+
+{% endblock %}

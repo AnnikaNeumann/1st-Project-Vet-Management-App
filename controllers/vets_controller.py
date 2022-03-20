@@ -16,7 +16,7 @@ def new_client():
     vets = vet_repo.select_all()
     return render_template("/new.html", vets = vets)
 
-
+# route to save the client after inputting details to form
 @vet_blueprint.route("/new_client/save_new_client", methods=['POST'])
 def save_new_client():
 
@@ -39,20 +39,18 @@ def save_new_client():
 
     return redirect('/submit')
 
-    # return render_template("/new.html")
-
+# route which functions when we click on submit when we save an animal
 @vet_blueprint.route("/submit", methods =['GET'])
 def submit():
     return render_template("/submit.html")
 
-
-
+# route which functions when we click on search in the nav
 @vet_blueprint.route("/search", methods =['GET'])
 def search_here():
 
     return render_template("/search.html")
 
-
+# route which functions when we click on the owner, which is being listed after the last funciton
 @vet_blueprint.route("/search/<owner_id>", methods =['GET'])
 def display_client(owner_id):
 
@@ -71,6 +69,7 @@ def search_for_client():
     # animal = animal_repo.select_animal(owner_id)
 
     return render_template('/view_clients.html',owners=owners)
+
 
     
 

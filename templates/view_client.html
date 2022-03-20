@@ -1,11 +1,14 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Owners</h2>
+<h2>Please find a list of all animals who belong to {{owner.first_name}} {{owner.last_name}}</h2>
 
     <h3>{{owner.first_name}} {{owner.last_name}}, {{owner.phone}} <h3>
 
     {% for animal in animals: %}
         <h3>{{animal.name}} {{animal.dob}}, {{animal.breed}}, {{animal.treatments}} <h3>
+
+            <button type="submit" formaction="/search/{{owner.id}}">Update</button>
+            <button type="submit" formaction="/search/{{owner.id}}">Add animal</button>
     {% endfor %}
 
 
