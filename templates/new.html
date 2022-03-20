@@ -3,7 +3,7 @@
 <h1>Add a new animal to the system</h1>
 
 <form action="/new_client/save_new_client" method="post">
-    <label for="animal">Name:</label>
+    <label for="animal">Animal Name:</label>
     <textarea name="name" id="name" rows="1"></textarea>
 
     <label for="animal">DOB:</label>
@@ -14,7 +14,8 @@
     
     <label for="animal">Treatments:</label> 
     <textarea name="treatments" id="treatments" rows="1"></textarea>
-   
+    <br><br>
+    <h1>Add the owner details</h1>
     <label for="owner">First name:</label>
     <textarea name="first_name" id="first_name" rows="1"></textarea>
 
@@ -23,19 +24,19 @@
 
     <label for="owner">Phone number:</label> 
     <textarea name="number" id="number" rows="1"></textarea>
-
+    <br><br>
     <label for="vet">Choose Vet:</label> 
-    <textarea name="choose_vet" id="choose_vet" rows="1"></textarea>
-    <!-- <select>
-      <option value=”Vet 1">Mr Roger Rabbit</option>
-      <option value=”Vet 2”>Mrs Mickey Mouse</option>
-      </select> -->
+    <select name="vet_id" id="vet_id">
+      {% for vet in vets: %}
+        <option value={{vet.id}}>{{vet.name}}</option>
+      {% endfor %}
+      </select>
 
 
     <input class="btn btn--action" type='submit' value="submit">
   </form>
 
-
+<!-- form to input details of owner and animal works, vets are listed in the drop down menu -->
 
 
 {% endblock %}

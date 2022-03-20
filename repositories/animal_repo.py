@@ -3,8 +3,8 @@ from db.run_sql import run_sql
 from modules.animal import Animal
 
 def save(animal):
-    sql = "INSERT INTO animals (name, dob, breed, treatments, owner_id) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [animal.name, animal.dob, animal.breed, animal.treatments, animal.owner_id]
+    sql = "INSERT INTO animals (name, dob, breed, treatments, owner_id, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [animal.name, animal.dob, animal.breed, animal.treatments, animal.owner_id, animal.vet_id]
     results = run_sql(sql, values)
     id = results[0]['id']
     animal.id = id
@@ -24,6 +24,6 @@ def select_animal_by_owner_id(owner_id):
     value=[owner_id]
     results = run_sql(sql,value) 
     for row in results:
-        animal = Animal(row['name'], row['dob'], row['breed'], row['treatments'])
+        animal = Animal(row['name'], row['dob'], row['breed'], row['treatments'], row['vet_id'])
         animals.append(animal)
     return animals

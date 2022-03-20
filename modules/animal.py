@@ -1,11 +1,13 @@
 class Animal:
-    def __init__(self, name, dob, breed, treatments):
+    def __init__(self, name, dob, breed, treatments, vet_id = None):
         self.name = name
         self.dob = dob
         self.breed = breed
         self.treatments = treatments
         self.id = None
         self.owner_id = None
+        self.vet_id = vet_id
+
 
     
 
