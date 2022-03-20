@@ -15,10 +15,11 @@ def save(owner):
 
 def select_last_name(last_name):
     owners = []
-    sql = "SELECT last_name FROM owners WHERE last_name = %s"
-    results = run_sql(sql) 
+    sql = "SELECT * FROM owners WHERE last_name = %s"
+    value = [last_name]
+    results = run_sql(sql, value)
     for row in results:
-        owner = Owner(row['first_name'], row ['last_name'], row ['phone'], row['id'])
+        owner = Owner(row['first_name'], row['last_name'], row['phone'])
         owners.append(owner)
     return owners
 

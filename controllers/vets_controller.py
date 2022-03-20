@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, Blueprint
 from modules.animal import Animal
 from modules.owner import Owner
+from repositories.owner_repo import select_last_name
 from repositories import animal_repo
 from repositories import owner_repo
 from repositories import vet_repo
@@ -14,7 +15,7 @@ def new_client():
     return render_template("/new.html")
 
 
-@vet_blueprint.route("/save_new_client", methods=['POST'])
+@vet_blueprint.route("/new_client/save_new_client", methods=['POST'])
 def save_new_client():
 
     name = request.form["name"]
@@ -48,12 +49,13 @@ def search_here():
     return render_template("/search.html")
 
 
-@vet_blueprint.route("/search_for_client", methods =['POST'])
+@vet_blueprint.route("/search/search_action", methods =['POST'])
 def search_for_client():
 
     last_name = request.form["last_name"]
+    owners = owner_repo.select_last_name(last_name)
 
-    return redirect('/submit')
+    return render_template('/view_clients.html',owners=owners)
 
     
 
