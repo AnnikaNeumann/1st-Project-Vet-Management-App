@@ -17,6 +17,11 @@ CREATE TABLE owners(
     phone VARCHAR(255)
 );
 
+CREATE TABLE vets(
+    id  SERIAL PRIMARY KEY,
+    name VARCHAR(255)
+    animal_id INT
+);
 --Adding animals to the database
 
 INSERT INTO animals (name, dob, breed, treatments,owner_id)
@@ -42,6 +47,12 @@ VALUES ('Karin', 'Kaefer', '07959523258');
 INSERT INTO owners (first_name, last_name, phone)
 VALUES ('Anita', 'Howard', '07769034592');
 
+-- Adding Vet to database
+
+INSERT INTO vets (name, animal_id)
+VALUES ('Mr Roger Rabbit', '1');
+
+INSERT INTO vets (name, animal_id)
+VALUES ('Mrs Mickey Mouse', ''3);
 
 
-SELECT * FROM animals;
