@@ -22,7 +22,7 @@ def save_new_client():
 
     name = request.form["name"]
     dob = request.form["DOB"]
-    breed = request.form["breed"]
+    species = request.form["type"]
     treatments = request.form["treatments"]
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
@@ -30,7 +30,7 @@ def save_new_client():
     vet_id = request.form["vet_id"]
 
     owner = Owner(first_name, last_name, number)
-    animal = Animal(name, dob, breed, treatments)
+    animal = Animal(name, dob, species, treatments)
     animal.vet_id = vet_id
     saved_owner = owner_repo.save(owner)
     animal.owner_id = saved_owner.id
@@ -71,6 +71,10 @@ def search_for_client():
     return render_template('/view_clients.html',owners=owners)
 
 
-    
+@vet_blueprint.route("/search_action/add_animal", methods =['GET'])
+def add_animal():
+
+    return render_template("/add_animal.html")
+
 
 

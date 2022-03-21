@@ -1,11 +1,16 @@
 {% extends "base.html" %} {% block content %} 
 
 <h1>Update any necessary details</h1>
-<h2>Disclaimer: Breed and dob cannot be changed</h2>
 
 <form action="/new_client/save_new_client" method="post">
     <label for="animal">Animal Name:</label>
     <textarea name="name" id="name" rows="1"></textarea>
+
+    <label for="animal">Treatments:</label> 
+    <textarea name="treatments" id="treatments" rows="1"></textarea>
+
+    <label for="animal">Treatments:</label> 
+    <textarea name="treatments" id="treatments" rows="1"></textarea>
     
     <label for="animal">Treatments:</label> 
     <textarea name="treatments" id="treatments" rows="1"></textarea>

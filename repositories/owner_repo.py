@@ -19,6 +19,7 @@ def select_by_id(id):
     result = run_sql(sql, value)[0]
     if result is not None:
         owner = Owner(result['first_name'], result['last_name'], result['phone'], result['id'])
+        
     return owner
 
 
