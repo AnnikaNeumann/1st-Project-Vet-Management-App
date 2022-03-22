@@ -38,11 +38,18 @@ VALUES ('Anita', 'Howard', '07769034592');
 
 -- Adding Vet to database
 
-INSERT INTO vets (name, animal_id)
-VALUES ('Mr Roger Rabbit', 1);
+INSERT INTO vets (name)
+VALUES ('Mr Roger Rabbit');
 
-INSERT INTO vets (name, animal_id)
-VALUES ('Mrs Mickey Mouse', 3);
+INSERT INTO vets (name)
+VALUES ('Mrs Mickey Mouse');
+
+INSERT INTO vets (name)
+VALUES ('Mr Jack Slater');
+
+INSERT INTO vets (name)
+VALUES ('Mrs Mary Doubtfire');
+
 
 --Adding animals to the database
 
