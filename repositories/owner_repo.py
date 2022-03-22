@@ -33,13 +33,14 @@ def select_last_name(last_name):
         owners.append(owner)
     return owners
 
-# update function does not work ! 
 def update(owner):
     sql = "UPDATE owners SET first_name =%s, last_name = %s, phone=%s WHERE id = %s"
     values = [owner.first_name,owner.last_name,owner.phone,owner.id]
     result = run_sql(sql, values)
     return result
 
-def delete_all():
-    sql = "DELETE FROM owner"
-    run_sql(sql)
+def delete_by_id(id):
+    sql = "DELETE FROM owner WHERE id =%s"
+    values =[id]
+    run_sql(sql, values)
+

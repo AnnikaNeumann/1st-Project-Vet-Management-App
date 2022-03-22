@@ -11,7 +11,6 @@ def save(animal):
     id = results[0]['id']
     animal.id = id
     return animal 
-    # this function can also be used to add a second animal
 
 def select_all():
     animal = []
@@ -32,15 +31,16 @@ def select_animal_by_owner(owner):
         animals.append(animal)
     return animals
 
+def update(animal):
+    sql = "UPDATE animals SET name =%s, dob= %s, species=%s, treatments=%s WHERE id = %s"
+    values = [animal.name, animal.dob, animal.species, animal.treatments]
+    result = run_sql(sql, values)
+    return result
 
-def update_client(last_name):
-    
-    return None
-
-
-def delete_all():
-    sql = "DELETE FROM animal"
-    run_sql(sql)
+def delete_by_id(id):
+    sql = "DELETE FROM animals WHERE id =%s"
+    values =[id]
+    run_sql(sql, values)
 
 
 

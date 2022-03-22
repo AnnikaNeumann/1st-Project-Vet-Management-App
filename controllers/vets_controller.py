@@ -52,7 +52,6 @@ def submit():
 # route which functions when we click on search in the nav
 @vet_blueprint.route("/search", methods =['GET'])
 def search_here():
-
     return render_template("/search.html")
 
 # route which functions when we click on the owner, which is being listed after the last funciton
@@ -61,7 +60,6 @@ def display_client(owner_id):
 
     owner = owner_repo.select_by_id(owner_id)
     animals = animal_repo.select_animal_by_owner(owner)
-
     return render_template("/view_client.html",owner = owner, animals = animals)
 
 
@@ -70,74 +68,53 @@ def search_for_client():
 
     last_name = request.form["last_name"]
     owners = owner_repo.select_last_name(last_name)
-
-    # animal = animal_repo.select_animal(owner_id)
-
     return render_template('/view_clients.html',owners=owners)
-
-
-# function which runs when we click on add button
-@vet_blueprint.route("/search_action/add_animal", methods=['GET'])
-def add_animal():
-
-    return render_template ("/add_animal.html")
-
-
 
 
 # function which runs when we click on update button, function actually leads to the update.html page ! 
 # DO NOT CHANGE CODE !
 @vet_blueprint.route("/search_action/update/<owner_id>", methods=['GET'])
 def update_client(owner_id):
-
-    # TO update the data in the database, you need to get the data, via ID or lastname,.. 
-    # then After instantiating the class of the object from the database.
-    # animal = animal_repo.select_by_id(ID)
-    # then UPDATE the items in the class such as animan.name = request.form["name"]
-    # after updating all of the variables stored in the class run the animal_repo.update(animal) making sure to pass in the full new class object
-     
     return render_template ("/update.html",owner_id = owner_id)
 
-
 # function which runs when we submit the updated client
-# Submit button works, however client won't update yet
 @vet_blueprint.route("/update_action/<owner_id>", methods=['POST'])
 def edit_client(owner_id):
 
-
     owner = owner_repo.select_by_id(owner_id)
 
-    # name = request.form["name"]
-    # dob = request.form["DOB"]
-    # species = request.form["species"]
-    # treatments = request.form["treatments"]
+    name = request.form["name"]
+    dob = request.form["dob"]
+    species = request.form["species"]
+    treatments = request.form["treatments"]
     owner.first_name = request.form["first_name"]
-    # owner.first_name = request.form["first_name"]
     owner.last_name = request.form["last_name"]
     owner.number = request.form ["number"]
     # # vet_id = request.form["vet_id"] not listed in actual update form
 
-    # animal = Animal(name, dob, species, treatments)
-
+    animal = Animal(name, dob, species, treatments)
 
     owner_repo.update(owner)
-    # # animal.vet_id = vet_id.
-    # saved_owner = owner_repo.save(owner)
-    # animal.owner_id = saved_owner.id
-    # animal_repo.save(animal)
+    # animal.vet_id = vet_id.
+    saved_owner = owner_repo.save(owner)
+    animal.owner_id = saved_owner.id
+    animal_repo.save(animal)
 
     return redirect ('/submit')
 
 
+
+
+
 # function which runs when we click on delete and redirect to Home
 # when clicking button it does redirect to Home, but does not yet delete animal
-@vet_blueprint.route("/search_action/delete", methods=['GET'])
-def delete_all():
+@vet_blueprint.route("/search_action/delete/<id>", methods=['GET'])
+def delete_by_id(id):
 
-    # animal_repo.delete()
-    # owner_repo.delete()
+    animal_repo.delete(id)
+    owner_repo.delete(id)
 
-    return render_template ("/index.html")
+    return render_template ('/')
 
 
 

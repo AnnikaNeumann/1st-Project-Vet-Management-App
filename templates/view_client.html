@@ -2,12 +2,12 @@
 
 <h2>Please find a list of all animals who belong to {{owner.first_name}} {{owner.last_name}}</h2>
 
-    <h3>{{owner.first_name}} {{owner.last_name}}, {{owner.phone}} <h3>
+    <h3>{{owner.first_name}} {{owner.last_name}}, Phone number {{owner.phone}} <h3>
 
     {% for animal in animals: %}
-        <h3>{{animal.name}} {{animal.dob}}, {{animal.species}}, {{animal.treatments}} <h3>
+        <h3>{{animal.name}}, dob {{animal.dob}}, {{animal.species}}, {{animal.name}}'s treatments : {{animal.treatments}} <h3>
     {% endfor %}
-    
+
     <form action="/search_action/update/{{owner.id}}" methods="post">
         <button type="submit" type="button">Update</button>
     </form>
@@ -16,6 +16,7 @@
         <input class="btn btn--danger" type="submit" value="delete">
       </form> 
 
+      <!-- delete button does not lead to correct path yet, 404 error -->
 
 
 {% endblock %}
