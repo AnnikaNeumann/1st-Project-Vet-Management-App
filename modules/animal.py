@@ -1,7 +1,7 @@
 
 
 class Animal:
-    def __init__(self, name, dob, species, treatments, owner, vet, id =None):
+    def __init__(self, name, dob, species, treatments, owner=None, vet=None, id=None):
         self.name = name
         self.dob = dob
         self.species = species

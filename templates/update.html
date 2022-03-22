@@ -2,18 +2,19 @@
 
 <h1>Update any necessary details</h1>
 
-<form action="/new_client/save_new_client" method="post">
+<form action="/update_action/{{owner_id}}" method="post">
     <label for="animal">Animal Name:</label>
     <textarea name="name" id="name" rows="1"></textarea>
 
-    <label for="animal">Treatments:</label> 
-    <textarea name="treatments" id="treatments" rows="1"></textarea>
+    <label for="animal">DOB:</label> 
+    <textarea name="dob" id="dob" rows="1"></textarea>
 
-    <label for="animal">Treatments:</label> 
-    <textarea name="treatments" id="treatments" rows="1"></textarea>
+    <label for="animal">Species:</label> 
+    <textarea name="species" id="species" rows="1"></textarea>
     
     <label for="animal">Treatments:</label> 
     <textarea name="treatments" id="treatments" rows="1"></textarea>
+    <br><br>
 
     <label for="owner">First name:</label>
     <textarea name="first_name" id="first_name" rows="1"></textarea>
@@ -23,6 +24,9 @@
 
     <label for="owner">Phone number:</label> 
     <textarea name="number" id="number" rows="1"></textarea>
-    <button type="submit" formaction="/search/{{owner.id}}">Update</button>
+    <input class="btn btn--action" type='submit' value="Update">
+</form>
 
 {% endblock %}
+
+<!-- {{owner.id}} -->

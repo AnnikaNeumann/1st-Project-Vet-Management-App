@@ -9,8 +9,8 @@
     <label for="animal">DOB:</label>
     <textarea name="DOB" id="DOB" rows="1"></textarea>
     
-    <label for="animal">Type:</label> 
-    <textarea name="breed" id="type" rows="1"></textarea>
+    <label for="animal">Species:</label> 
+    <textarea name="species" id="species" rows="1"></textarea>
     
     <label for="animal">Treatments:</label> 
     <textarea name="treatments" id="treatments" rows="1"></textarea>
@@ -26,7 +26,7 @@
     <textarea name="number" id="number" rows="1"></textarea>
     <br><br>
     <label for="vet">Choose Vet:</label> 
-    <select name="vet_id" id="vet_id">
+    <select name="vet_id" id="vet_id" result>
       {% for vet in vets: %}
         <option value={{vet.id}}>{{vet.name}}</option>
       {% endfor %}
@@ -37,6 +37,6 @@
   </form>
 
 <!-- form to input details of owner and animal works, vets are listed in the drop down menu -->
-
+<!-- THIS FORM WORKS, DO NOT CHANGE CODE  ! -->
 
 {% endblock %}

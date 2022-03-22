@@ -20,12 +20,14 @@ def select_all():
 def select_by_id(id):
     vet = None
     sql = "SELECT * FROM vets WHERE id = %s"
-    value = id
+    value = [id]
     result = run_sql(sql, value)[0]
     if result is not None:
         vet = Vet(result['name'], result['id'])
-        
+       
     return vet
     
 
-
+def delete_all():
+    sql = "DELETE FROM vets"
+    run_sql(sql)

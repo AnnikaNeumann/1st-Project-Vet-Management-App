@@ -1,6 +1,8 @@
 from db.run_sql import run_sql
 
 from modules.animal import Animal
+from modules.owner import Owner
+from repositories import vet_repo as vet_repo
 
 def save(animal):
     sql = "INSERT INTO animals (name, dob, species, treatments, owner_id, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
@@ -23,13 +25,22 @@ def select_animal_by_owner(owner):
     animals = []
     sql = "SELECT * FROM animals WHERE owner_id = %s"
     value=[owner.id]
-    value = vet_
     results = run_sql(sql,value) 
     for row in results:
+        vet = vet_repo.select_by_id(row['vet_id'])
         animal = Animal(row['name'], row['dob'], row['species'], row['treatments'], owner, vet, row['id'])
         animals.append(animal)
     return animals
 
+
+def update_client(last_name):
+    
+    return None
+
+
+def delete_all():
+    sql = "DELETE FROM animal"
+    run_sql(sql)
 
 
 

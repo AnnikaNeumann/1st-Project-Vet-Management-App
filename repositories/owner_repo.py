@@ -19,7 +19,7 @@ def select_by_id(id):
     result = run_sql(sql, value)[0]
     if result is not None:
         owner = Owner(result['first_name'], result['last_name'], result['phone'], result['id'])
-        
+
     return owner
 
 
@@ -33,5 +33,13 @@ def select_last_name(last_name):
         owners.append(owner)
     return owners
 
+# update function does not work ! 
+def update(owner):
+    sql = "UPDATE owners SET first_name =%s, last_name = %s, phone=%s WHERE id = %s"
+    values = [owner.first_name,owner.last_name,owner.phone,owner.id]
+    result = run_sql(sql, values)
+    return result
 
-
+def delete_all():
+    sql = "DELETE FROM owner"
+    run_sql(sql)

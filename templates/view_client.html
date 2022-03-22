@@ -6,11 +6,15 @@
 
     {% for animal in animals: %}
         <h3>{{animal.name}} {{animal.dob}}, {{animal.species}}, {{animal.treatments}} <h3>
-
-            <button type="submit" formaction="/search/{{owner.id}}">Update</button>
-            <button type="submit" formaction="/search/{{owner.id}}">Add animal</button>
     {% endfor %}
+    
+    <form action="/search_action/update/{{owner.id}}" methods="post">
+        <button type="submit" type="button">Update</button>
+    </form>
 
+    <form action="/search_action/delete/{{owner.id}}" methods="post">
+        <input class="btn btn--danger" type="submit" value="delete">
+      </form> 
 
 
 
