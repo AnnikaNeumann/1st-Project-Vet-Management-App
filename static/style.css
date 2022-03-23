@@ -13,7 +13,10 @@ h1 {
 
     list-style-type: none;
     font-size: 20px;
+    
 }
+
+
 
 body{
     background-color: rgb(83, 131, 106);
@@ -33,4 +36,14 @@ footer{
     padding-top: 10px;    
 }
 /* footer code works */
+
+img{
+    width: 150px;
+    height: 180px;
+    border-radius: 50%
+    
+
+    
+
+}
 

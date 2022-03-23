@@ -12,9 +12,10 @@
         <button type="submit" type="button">Update</button>
     </form>
 
-    <form action="/search_action/delete/{{owner.id}}" methods="post">
-        <input class="btn btn--danger" type="submit" value="delete">
-      </form> 
+    
+    <form action="/delete/{{owner.id}}" methods="get">
+        <button type="submit" type="button">Delete</button>
+    </form>
 
       <!-- delete button does not lead to correct path yet, 404 error -->
 

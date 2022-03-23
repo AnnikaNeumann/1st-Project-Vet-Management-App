@@ -12,6 +12,15 @@ def save(owner):
     owner.id = id
     return owner 
 
+def select_all():
+    owners = []
+    sql = "SELECT * FROM owners"
+    results = run_sql(sql) 
+    for row in results:
+        owner = Owner(row['first_name'], row['last_name'], row['phone'], row['id'])
+        owners.append(owner)
+    return owners
+
 def select_by_id(id):
     owner = None
     sql = "SELECT * FROM owners WHERE id = %s"
@@ -19,7 +28,6 @@ def select_by_id(id):
     result = run_sql(sql, value)[0]
     if result is not None:
         owner = Owner(result['first_name'], result['last_name'], result['phone'], result['id'])
-
     return owner
 
 
@@ -39,8 +47,8 @@ def update(owner):
     result = run_sql(sql, values)
     return result
 
-def delete_by_id(id):
-    sql = "DELETE FROM owner WHERE id =%s"
-    values =[id]
+def delete_owner(id):
+    sql = "DELETE FROM owners WHERE id =%s"
+    values = [id]
     run_sql(sql, values)
 

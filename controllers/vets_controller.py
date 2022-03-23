@@ -12,6 +12,12 @@ from repositories import vet_repo
 
 vet_blueprint = Blueprint("animal", __name__)
 
+@vet_blueprint.route("/all", methods =['GET'])
+def view_all():
+
+    owners = owner_repo.select_all()
+    return render_template("/view_all.html", owners = owners)
+
 # route to get to the front page /new_client to add a new animal
 @vet_blueprint.route("/new_client", methods =['GET'])
 def new_client():
@@ -81,40 +87,42 @@ def update_client(owner_id):
 @vet_blueprint.route("/update_action/<owner_id>", methods=['POST'])
 def edit_client(owner_id):
 
+    # first get the owner we want to update
     owner = owner_repo.select_by_id(owner_id)
+    # second get the animalS we want to update
+    animal = animal_repo.select_animal_by_owner(owner)
+   
+    # at this time FOR TESTING hardcode position [0] only to change the first pets details
+    animal[0].name = request.form["name"]
+    animal[0].dob = request.form["dob"]
+    animal[0].species = request.form["species"]
+    animal[0].treatments = request.form["treatments"]
+    # here we update the varables in the instance of animal with all the new details from the webForm
 
-    name = request.form["name"]
-    dob = request.form["dob"]
-    species = request.form["species"]
-    treatments = request.form["treatments"]
+    # here we update the instance of the owner's details
     owner.first_name = request.form["first_name"]
     owner.last_name = request.form["last_name"]
     owner.number = request.form ["number"]
-    # # vet_id = request.form["vet_id"] not listed in actual update form
 
-    animal = Animal(name, dob, species, treatments)
-
+    # here we pass the NEW updated Version of the owner instance on to the database
     owner_repo.update(owner)
-    # animal.vet_id = vet_id.
-    saved_owner = owner_repo.save(owner)
-    animal.owner_id = saved_owner.id
-    animal_repo.save(animal)
+    # here we pass the New Updated Version of the animal instance to the database
+    animal_repo.update(animal[0])
 
-    return redirect ('/submit')
-
-
-
+    # this just shows a submit page
+    return render_template ('/submit.html')
 
 
 # function which runs when we click on delete and redirect to Home
 # when clicking button it does redirect to Home, but does not yet delete animal
-@vet_blueprint.route("/search_action/delete/<id>", methods=['GET'])
-def delete_by_id(id):
+@vet_blueprint.route("/delete/<id>", methods=['GET'])
+def delete_owner(id):
 
-    animal_repo.delete(id)
-    owner_repo.delete(id)
+    owner = owner_repo.select_by_id(id)
+    owner_repo.delete_owner(id)
 
-    return render_template ('/')
+    return render_template ("/delete.html", owner = owner)
+
 
 
 

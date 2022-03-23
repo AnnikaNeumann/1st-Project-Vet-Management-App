@@ -13,12 +13,13 @@ def save(animal):
     return animal 
 
 def select_all():
-    animal = []
-    sql = "SELECT * FROM book"
+    animals = []
+    sql = "SELECT * FROM animals"
     results = run_sql(sql) 
     for row in results:
         animal = Animal(row['name'], row['dob'], row['species'], row['treatments'], row['owner_id'])
-    return animal
+        animals.append(animal)
+    return animals
 
 def select_animal_by_owner(owner):
     animals = []
@@ -33,14 +34,14 @@ def select_animal_by_owner(owner):
 
 def update(animal):
     sql = "UPDATE animals SET name =%s, dob= %s, species=%s, treatments=%s WHERE id = %s"
-    values = [animal.name, animal.dob, animal.species, animal.treatments]
+    values = [animal.name, animal.dob, animal.species, animal.treatments,animal.id]
     result = run_sql(sql, values)
     return result
 
-def delete_by_id(id):
-    sql = "DELETE FROM animals WHERE id =%s"
-    values =[id]
-    run_sql(sql, values)
+# def delete_by_id(id):
+#     sql = "DELETE FROM animals WHERE id =%s"
+#     values =[id]
+#     run_sql(sql, values)
 
 
 
