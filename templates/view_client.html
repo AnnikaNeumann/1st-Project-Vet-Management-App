@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Please find a list of all animals who belong to {{owner.first_name}} {{owner.last_name}}</h2>
+<div class="owner_animal_results">
+    <h2>Please find a list of all animals who belong to {{owner.first_name}} {{owner.last_name}}</h2>
 
     <h3>{{owner.first_name}} {{owner.last_name}}, Phone number {{owner.phone}} <h3>
 
@@ -16,8 +17,6 @@
     <form action="/delete/{{owner.id}}" methods="get">
         <button type="submit" type="button">Delete</button>
     </form>
-
-      <!-- delete button does not lead to correct path yet, 404 error -->
-
+</div>
 
 {% endblock %}

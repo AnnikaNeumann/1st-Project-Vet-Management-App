@@ -11,24 +11,35 @@
 <body>
     <header>
         <nav>
-            <ul class="navigation">
-                <li><a href="/">Home</a></li>
-                <li> <a href="/new_client">Add new client</a></li>
-                <li> <a href="/search">Search</a></li>
-                <li> <a href="/all">View All clients</a></li>
+            <div class="navigation">
+                <li><a class ="active" href="/">Home</a></li>
+                <li><a href="/new_client">Add new client</a></li>
+                <li><a href="/search">Search Here</a></li>
+                <li><a href="/all">View Them All</a></li>
 <!-- make list type none and put them in one row  -->
             </ul>
         </nav>
     </header>
     <!-- <h1>One app to rule them all</h1> -->
-
+<main>
 {% block content %}
 
 {% endblock %}
+</main>
+
+<!-- <div class="footer"> -->
+    <footer class="footer">
+     <div class="vetlogo"><img src="/static/images/vet_logo.png" alt="vet_logo"></div> 
+    <p>Because all animals matter</p>
+<!-- </div> -->
+</footer>
+
 </body>
 
-<footer>
-    <p>Because all animals matter</p>
-</footer>
 </html>
 
+<!-- <ul class="navigation">
+    <li><a href="/">Home</a></li>
+    <li> <a href="/new_client">Add new client</a></li>
+    <li> <a href="/search">Search</a></li>
+    <li> <a href="/all">View All clients</a></li> -->

@@ -1,17 +1,19 @@
 {% extends "base.html" %} {% block content %}
 
-    <h2> View All Owners </h2>
+<div class="view_all">
+    <h1> View All Owners </h1>
 
     {% for owner in owners: %}
 
         <h3>{{owner.first_name}} {{owner.last_name}}, phone number {{owner.phone}} <h3>
             <form action="/search_action/update/{{owner.id}}" methods="post">
-                <button type="submit" type="button">Update</button>
+                <button type="submit" type="button">Update details</button>
             </form>
             
             <form action="/delete/{{owner.id}}" methods="get">
                 <button type="submit" type="button">Delete</button>
             </form>
+</div>
 
     {% endfor %}
 
