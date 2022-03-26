@@ -11,9 +11,33 @@
                
         </form>
 </div>
+<div class="animal_results">
+    <h2>Please find a list of all animals with this name</h2>
+        {% for animal in animals: %}
+            <form action="/search" method="get">
+    
+                <h3>{{animal_name}}, dob : {{animal.dob}, {{animal.species}}<h3>
+                
+                <button type="submit" formaction="/search/{{animal.id}}">Select</button>
+                   
+            </form>
+    </div>
+<!-- CODE TO VIEW ANIMAL AS WELL AFTER SEARCH FORM - PRACITSE -->
     {% endfor %}
 
 
 {% endblock %}
 
+<!-- <div class="owner_results">
+    <h2>Please find a list of all clients with this last name</h2>
+        {% for owner in owners: %}
+            <form action="/search" method="get">
+    
+                <h3>{{owner.first_name}} {{owner.last_name}}, phone number {{owner.phone}} <h3>
+                
+                <button type="submit" formaction="/search/{{owner.id}}">Select</button>
+                   
+            </form>
+    </div> -->
 
+    CODE WHICH WORKS FOR OWNER ONLY!!!!

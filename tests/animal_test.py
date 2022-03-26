@@ -1,16 +1,20 @@
 import unittest
 from modules.animal import Animal
-from modules.owner import Owner
 
 class TestAnimal(unittest.TestCase):
 
+
     def setUp(self):
         self.animal_1= Animal("Elliot", "11092011", "Cat", "Flea treatment")
-        self.animal_2=Animal("Gimley", "12121998", "Sheep", "Hip Physio", 38)
+        self.animal_2=Animal("Gimley", "12121998", "Sheep", "Hip Physio", None)
 
-    # # def test_animal_has_name(self):
-    #     self.assertEqual("Elliot", self.animal_1)
+#     def test_animal_has_name(self):
+#         self.assertEqual("Elliot", self.animal_1.name)
+# # # test ran ok
 
+#     def test_animal_has_treatments(self):
+#         self.assertEqual("Hip Physio", self.animal_2.treatments)
+# test ran ok
     
 
 
